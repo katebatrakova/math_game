@@ -24,14 +24,12 @@ def play
 question = Question.new(current_player.name)
 print question.question_text
 # Propmt for player's answer
-answer = gets.chomp
+answer = gets.chomp.to_s
 puts "You answer is #{answer}. Let's check if it's the correct one..."
 # check if the answer is right
 p question.validate_answer(answer)
  # player will loose a live (-1) if mis-answer, 
-if question.validate_answer == false 
 
-end
   # switch turns 
 
   # check if game_over, someone has 0 lives?

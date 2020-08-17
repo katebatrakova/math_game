@@ -15,14 +15,13 @@ def question_text
 end
 
 #take the player's input and check against the correct one
-def validate_answer (player_answer)
-puts "#{player_answer} player's answer from questions  "
-if player_answer == (@number1 + @number2)
-puts "Yes. Your answer is correct. It is indeed #{(@number1 + @number2)} "
-return true
+def validate_answer (answer)
+@answer = answer
+sum = @number1 + @number2
+if answer.to_s === sum.to_s
+   puts "Yes. Your answer: #{@answer}, is correct. It is indeed #{(@number1 + @number2)} "
 else 
-  puts "Oops, sorry. Your answer is incorrect. It should be #{(@number1 + @number2)} "
-  return false
+  puts "Sorry. Your answer: #{@answer}, is incorrect. It should be #{(@number1 + @number2)} "
 end
 
 end 

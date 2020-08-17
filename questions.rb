@@ -19,8 +19,10 @@ def validate_answer (player_answer)
 puts "#{player_answer} player's answer from questions  "
 if player_answer == (@number1 + @number2)
 puts "Yes. Your answer is correct. It is indeed #{(@number1 + @number2)} "
+return true
 else 
   puts "Oops, sorry. Your answer is incorrect. It should be #{(@number1 + @number2)} "
+  return false
 end
 
 end 

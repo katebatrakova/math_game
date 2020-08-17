@@ -10,26 +10,28 @@ def initialize
   # create 2 players
 @player1 = Player.new("Player 1 Kate")
 @player1 = Player.new("Player 2 Mike")
-@current_player=@player1.name 
+@current_player=@player1
 end
 # play method - main game loop 
 def play 
   puts "--------------------"
   puts "    Game starts     "
   puts "--------------------"
-  p "#{current_player}, get ready for your question"
+  p "#{current_player.name}, get ready for your question"
 
   # initialize a  question 
 
-question = Question.new(current_player)
+question = Question.new(current_player.name)
 print question.question_text
 # Propmt for player's answer
 answer = gets.chomp
-puts "You answers is #{answer}. Let's check if it's the correct one..."
+puts "You answer is #{answer}. Let's check if it's the correct one..."
 # check if the answer is right
 p question.validate_answer(answer)
  # player will loose a live (-1) if mis-answer, 
+if question.validate_answer == false 
 
+end
   # switch turns 
 
   # check if game_over, someone has 0 lives?

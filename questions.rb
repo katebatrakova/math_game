@@ -19,9 +19,11 @@ def validate_answer (answer)
 @answer = answer
 sum = @number1 + @number2
 if answer.to_s === sum.to_s
-   puts "Yes. Your answer: #{@answer}, is correct. It is indeed #{(@number1 + @number2)} "
+   puts "Yes. Your answer: #{@answer}, is correct. It is indeed #{(@number1 + @number2)}"
+   return true
 else 
   puts "Sorry. Your answer: #{@answer}, is incorrect. It should be #{(@number1 + @number2)} "
+  return false
 end
 
 end 

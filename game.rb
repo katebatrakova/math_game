@@ -8,12 +8,15 @@ attr_accessor :current_player
 
 def initialize
   # create 2 players
-@player1 = Player.new("Player 1 Kate")
-@player2 = Player.new("Player 2 Mike")
-@current_player=@player1
+@player1 = Player.new("Player 1")
+@player2 = Player.new("Player 2")
+@current_player=@player2
 end
 # play method - main game loop 
 def play 
+# keep playing a game until one of the players has no lives 
+while @player1.lives > 0 && @player2.lives > 0
+
   puts "--------------------"
   puts "    Game starts     "
   puts "--------------------"
@@ -33,22 +36,34 @@ puts "We are taking 1 life from your lives"
 @current_player.lives -=1
 end
 
-puts "This is how many lives left for #{@current_player.name} ----- #{@current_player.lives}"
+puts "This is how many lives left for #{@current_player.name} ----- #{@current_player.lives}/3"
 # switching turns 
 @current_player==@player1 ? @current_player = @player2 : @current_player = @player1
-puts "Now switching turns, #{current_player.name} is playing now"
-puts "This is how many lives left for the other player #{@current_player.name} ----- #{@current_player.lives}"
+
+puts "--------------------"
+puts "     NEW TURN       "
+puts "--------------------"
+
+puts "#{current_player.name} is playing now"
+puts "This is how many lives left for this player #{@current_player.name} ----- #{@current_player.lives}/3"
 
  # check if game_over, someone has 0 lives?
-
- 
-
-  #who is the winner
+ if @player1.lives == 0 || @player2.lives == 0
+  puts "--------------------"
+  puts "    GAME OVER    "
+  puts "--------------------"
+  #who is the winner 
+  if @player1.lives > 0
+    puts "#{@player1.name} is the WINNER with a score #{@player1.lives}/3 "
+  else 
+    puts "#{@player2.name} is the WINNER #{@player2.lives}/3"
+  end
+ end
 end
 
 
 
-
+end
 end
 
 game1 = Game.new
